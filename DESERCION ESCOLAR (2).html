@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deserción Escolar: Información y Prevención</title>
+    <!-- Google Fonts para estilo profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --azul-cielo-principal: #87CEEB;
+            --azul-cielo-claro: #E0F7FA;
+            --azul-oscuro: #2980B9;
+            --blanco: #FFFFFF;
+            --gris-claro: #F8FAFC;
+            --gris-texto: #4A5568;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            line-height: 1.7;
+            color: var(--gris-texto);
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(to right, var(--azul-oscuro), var(--azul-cielo-principal));
+            color: var(--blanco);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Contenido Principal */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .seccion {
+            background-color: var(--blanco);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.2);
+            border-top: 4px solid var(--azul-oscuro);
+            transition: transform 0.3s ease;
+        }
+
+        .seccion:hover {
+            transform: translateY(-5px);
+        }
+
+        .seccion-titulo {
+            color: var(--azul-oscuro);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .seccion-titulo i {
+            font-size: 1.5rem;
+            color: var(--azul-cielo-principal);
+        }
+
+        /* Contenedor de contenido con imagen */
+        .contenido-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .texto-seccion p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .imagen-contenedor {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(135, 206, 235, 0.3);
+        }
+
+        .imagen-seccion {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .imagen-seccion:hover {
+            transform: scale(1.05);
+        }
+
+        /* Listas estilizadas */
+        .lista-estilizada {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .lista-estilizada li {
+            margin-bottom: 1rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid var(--azul-cielo-principal);
+        }
+
+        .lista-estilizada li strong {
+            color: var(--azul-oscuro);
+        }
+
+        /* Video responsive */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-top: 1rem;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* Sección Encuesta (opcional pero recomendada) */
+        .seccion-encuesta {
+            background: linear-gradient(to right, var(--azul-cielo-claro), var(--azul-cielo-principal));
+            text-align: center;
+        }
+
+        .boton-encuesta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-encuesta:hover {
+            background-color: #1A5276;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contenido-flex {
+                grid-template-columns: 1fr;
+            }
+
+            .imagen-contenedor {
+                height: 220px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .seccion {
+                padding: 1.8rem;
+            }
+
+            .seccion-titulo {
+                font-size: 1.5rem;
+            }
+
+            .video-container video {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+    <!-- Iconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Deserción Escolar: Información y Acciones para Prevenirla</h1>
+        <p>Juntos podemos construir un futuro donde cada estudinte tenga la oportunidad de completarla su camino educativo y alcanzar sus sueños</p>
+    </header>
+
+    <main>
+        <!-- Sección ¿Qué es? -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-question-circle"></i> ¿Qué es la deserción escolar?
+            </h2>
+            <div class="contenido-flex">
+                <div class="texto-seccion">
+                    <p>La deserción escolar se define como el abandono del sistema educativo por parte de los estudiantes antes de completar el nivel educativo que están cursando.</p>
+                    <p>Es un fenómeno multicausal que afecta a individuos, familias y sociedades en su conjunto, limitando de manera significativa las oportunidades de desarrollo personal, profesional y económico.</p>
+                    <p>La educación es un derecho fundamental reconocido internacionalmente, por lo que su abandono representa un desafío para la equidad y el progreso social.</p>
+                </div>
+                <div class="imagen-contenedor">
+                    <!-- Espacio para tu imagen - puedes reemplazar la URL por la que desees -->
+                    <img src="desercion.jpg" alt="desercion.jpg" class="imagen-seccion">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Causas Principales -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-puzzle-piece"></i> Información importante: Causas principales
+            </h2>
+            <div class="contenido-flex">
+                <div class="imagen-contenedor">
+                    <!-- Espacio para tu imagen - reemplaza la URL -->
+                    <img src="causas.jpg" alt="causas.jpg" class="imagen-seccion">
+                </div>
+                <div class="texto-seccion">
+                    <ul class="lista-estilizada">
+                        <li><strong>Factores económicos:</strong> Necesidad de trabajar para contribuir al ingreso familiar, falta de recursos para pagar matrículas, transporte o materiales escolares.</li>
+                        <li><strong>Factores familiares:</strong> Falta de apoyo o interés de los padres en la educación, situaciones de violencia intrafamiliar, cambios en la estructura familiar o responsabilidades domésticas excesivas.</li>
+                        <li><strong>Factores escolares:</strong> Malas experiencias en el centro educativo (acoso escolar), dificultades de aprendizaje no atendidas, metodologías de enseñanza poco motivadoras o falta de vinculación entre el currículo y la realidad del estudiante.</li>
+                        <li><strong>Factores personales:</strong> Problemas de salud física o mental, baja autoestima, falta de motivación o percepción de que la educación no es útil para su futuro.</li>
+                        <li><strong>Factores sociales:</strong> Entornos con alta incidencia de violencia, influencia de grupos peer que abandonan los estudios o falta de oportunidades laborales ligadas a la educación en la comunidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Consecuencias -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-exclamation-triangle"></i> Consecuencias de la deserción escolar
+            </h2>
+            <div class="contenido-flex">
+                <div class="texto-seccion">
+                    <ul class="lista-estilizada">
+                        <li>Menores oportunidades de empleo y salarios más bajos a lo largo de la vida.</li>
+                        <li>Mayor riesgo de exclusión social y participación en actividades delictivas.</li>
+                        <li>Dificultades para acceder a niveles educativos superiores.</li>
+                        <li>Impacto negativo en el desarrollo económico y social de la comunidad y el país.</li>
+                        <li>Problemas de autoestima y salud mental derivados de la frustración por no alcanzar metas educativas.</li>
+                    </ul>
+                    <p>Estas consecuencias no solo afectan al individuo, sino que perpetúan ciclos de desigualdad que dificultan el progreso colectivo.</p>
+                </div>
+                <div class="imagen-contenedor">
+                    <!-- Espacio para tu imagen - reemplaza la URL -->
+                    <img src="CONSECUENCIA1.jpg" alt="CONSECUENCIA1.jpg" class="imagen-seccion">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Acciones para Evitar -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-hand-holding-heart"></i> Acciones para evitar la deserción escolar
+            </h2>
+            <div class="contenido-flex">
+                <div class="imagen-contenedor">
+                    <!-- Espacio para tu imagen - reemplaza la URL -->
+                    <img src="ALUMNOS.jpg" alt="ALUMNOS.jpg" class="imagen-seccion">
+                </div>
+                <div class="texto-seccion">
+                    <ul class="lista-estilizada">
+                        <li><strong>Desde el gobierno y las instituciones educativas:</strong> Implementar programas de apoyo económico (becas, ayudas alimentarias), mejorar las instalaciones escolares y los recursos educativos, capacitar a docentes en metodologías inclusivas y atención a la diversidad, y crear sistemas de seguimiento temprano de estudiantes en riesgo de abandonar.</li>
+                        <li><strong>Desde la familia:</strong> Mostrar interés constante en el progreso escolar de los hijos, establecer rutinas de estudio en casa, comunicarse regularmente con los docentes y brindar apoyo emocional para enfrentar dificultades.</li>
+                        <li><strong>Desde la escuela:</strong> Fomentar un ambiente escolar seguro y respetuoso, implementar programas de tutoría individualizada, ofrecer actividades extracurriculares que motiven a los estudiantes y adaptar el currículo a las necesidades y realidades de la comunidad.</li>
+                        <li><strong>Desde la comunidad:</strong> Crear espacios de apoyo educativo (talleres, centros de estudio), sensibilizar a la población sobre la importancia de la educación y promover iniciativas que vinculen la escuela con el mundo laboral de manera positiva.</li>
+                        <li><strong>Desde el propio estudiante:</strong> Buscar ayuda cuando se presenten dificultades, establecer metas educativas claras, participar en actividades escolares y rodearse de personas que valoren la educación.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Ejemplo Video -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-video"></i> Ejemplo de cómo se puede dar la deserción escolar
+            </h2>
+            <div class="video-container">
+                <video src="vid.mp4" autoplay loop controls>
+                                    </video>
+            </div>
+        </section>
+<!-- Sección Artículos -->
+<section class="seccion">
+    <h2 class="seccion-titulo">
+        <i class="fas fa-book"></i> Artículos recientes sobre la deserción escolar en México
+    </h2>
+
+    <div class="contenido-flex">
+
+        <div class="imagen-contenedor">
+            <img src="as.webp" alt="as.webp" class="imagen-seccion">
+        </div>
+
+        <div class="texto-seccion">
+            <p>Consulta algunos artículos recientes sobre la deserción escolar en México:</p>
+
+            <ul class="lista-estilizada">
+
+                <li>
+                    <strong>La tasa de deserción escolar y las regiones de México (2025)</strong><br>
+                    <a href="https://www.riico.net/index.php/riico/article/view/2459" target="_blank">
+                        Leer artículo
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Desigualdad social y deserción escolar en México post COVID (2025)</strong><br>
+                    <a href="https://www.researchgate.net/publication/393538679_Capitulo_1_Desigualdad_social_y_educativa_post_Covid_y_la_desercion_escolar_mexicana" target="_blank">
+                        Leer artículo
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Impacto de la deserción escolar en México (2015–2023, publicado 2025)</strong><br>
+                    <a href="https://www.ciencialatina.org/index.php/cienciala/article/view/16912" target="_blank">
+                        Leer artículo
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Análisis reciente de la deserción escolar en México (2024)</strong><br>
+                    <a href="https://www.scielo.org.mx/article_plus.php?pid=S0185-27602024000300019&tlng=es" target="_blank">
+                        Leer artículo
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+        <!-- Sección Contactos -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-phone"></i> Contactos para Asesorías
+            </h2>
+            <div class="texto-seccion">
+                <ul class="lista-estilizada">
+                    <li><strong>Puc Puc Manuel Alexander (asesorías)</strong><br>Tel: <a href="tel:9851463210">985 146 32 10</a></li>
+                    <li><strong>Tun Poot Delghy Abigail (asesorías)</strong><br>Tel: <a href="tel:9843090164">984 309 01 64</a></li>
+                    <li><strong>Psicólogo (experto en asesorías)</strong><br>Puc Gamboa Víctor Manuel<br>Tel: <a href="tel:9851479606">985 147 96 06</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sección Autores -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-users"></i> Autores
+            </h2>
+            <div class="texto-seccion">
+                <ul class="lista-estilizada">
+                    <li>Dzul Hoil Glendy Guadalupe</li>
+                    <li>Tun Poot Delghy Abigail</li>
+                    <li>Puc Puc Manuel Alexander</li>
+                    <li>Xihum Chan José Adolfo</li>
+                    <li>Puc Tun Cristhian Rolando</li>
+                </ul>
+            </div>
+        </section>
+           
+        <!-- Sección Encuesta (opcional pero recomendada) -->
+        <section class="seccion seccion-encuesta">
+            <h2 class="seccion-titulo">
+                <i class="fas fa-poll"></i> Tu Opinión Nos Ayuda
+            </h2>
+            <p>Colabora con nosotros respondiendo nuestra encuesta sobre deserción escolar y ayúdanos a fortalecer las acciones de prevención.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHk6tYVycX4m6xS6x57X3rYhkqzdxeobKvZcYm49wf9OB0Nw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="boton-encuesta">
+                <i class="fas fa-arrow-right"></i> Completar Encuesta
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Información sobre la Deserción Escolar | Todos los derechos reservados</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Diseñado para promover la educación y la equidad social</p>
+    </footer>
+</body>
+</html>
